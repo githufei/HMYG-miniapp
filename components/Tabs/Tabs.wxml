@@ -1,0 +1,12 @@
+<!--components/Tabs/Tabs.wxml-->
+<view class="tabs">
+	<view class="tabs-bar">
+		<view class="tabs-item {{item.isActive? 'tabs-active':''}}" wx:for="{{tabs}}" wx:key="text"
+			bindtap="handleTabBarClick" data-index="{{index}}">
+			{{item.text}}
+		</view>
+	</view>
+	<view class="tabs-content">
+		<slot></slot>
+	</view>
+</view>

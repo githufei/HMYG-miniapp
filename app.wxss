@@ -1,0 +1,29 @@
+/**app.wxss**/
+@import './styles/iconfont/index.wxss';
+
+page,
+view,
+text,
+swiper,
+swiper-item,
+image,
+navigator {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+page {
+	--themeColor: #EB0634;
+	--themeColorLight: #FFEFE2;
+	--themeColorDark: #c2072c;
+	font-size: 28rpx;
+}
+
+.bottom-tip {
+	color: #ccc;
+	text-align: center;
+	font-size: 24rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+}

@@ -1,0 +1,31 @@
+<!-- 搜索框 -->
+<Search></Search>
+
+<view class="category-container">
+	<!-- 左侧分类 -->
+	<scroll-view class="category-left" scroll-y>
+		<view class="category-item {{activeId == item.cat_id ? 'category-item-active' : ''}}" wx:for="{{categories}}"
+			wx:key="cat_id" bindtap="handleTapLefItem" data-content="{{item}}">
+			{{item.cat_name}}
+		</view>
+	</scroll-view>
+	<!-- 右侧品牌 -->
+
+	<scroll-view class="category-right" scroll-y scroll-top="{{scrollTop}}">
+		<view class="section" wx:for="{{rightContent}}" wx:key="cat_id">
+			<view class="section-name" wx:if="{{item.children}}">
+				{{item.cat_name}}
+			</view>
+			<navigator class="cate-item" url="/pages/goods_list/goods_list?cid={{item2.cat_id}}"
+				wx:for="{{item.children}}" wx:key="cat_id" wx:for-item="item2" wx:for-index="index2">
+				<view class="cate-icon">
+					<image src="{{item2.cat_icon}}" mode="widthFix"></image>
+				</view>
+				<view class="cate-name">
+					{{item2.cat_name}}
+				</view>
+			</navigator>
+		</view>
+	</scroll-view>
+
+</view>

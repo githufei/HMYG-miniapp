@@ -1,0 +1,51 @@
+<!--pages/goods_detail/goods_detail.wxml-->
+<!--轮播图-->
+
+<swiper class="detail-swiper" indicator-dots indicator-color="rgba(0,0,0,.3)" autoplay circular="false">
+	<swiper-item class="detail-swiper-item" wx:for="{{goodsDetail.pics}}" wx:key="pics_id" bindtap="handlePreviewImage"
+		data-index="{{index}}">
+		<image class="" src="{{item.pics_mid}}" mode="widthFix" />
+	</swiper-item>
+</swiper>
+
+<!--商品名称价格收藏-->
+<view class="goods-info">
+	<text class="goods-price">¥ {{goodsDetail.goods_price}}</text>
+	<view class="goods-name-container">
+		<view class="goods-name">
+			{{goodsDetail.goods_name}}
+		</view>
+		<view class="goods-shoucang">
+			<text class="iconfont icon-shoucang" />
+			收藏
+		</view>
+	</view>
+</view>
+
+<!--商品详情-->
+<view class="goods-detail-info">
+	<view class="section-name">图文详情</view>
+	<rich-text class="goods-detail-content" nodes="{{goodsDetail.goods_introduce}}" />
+</view>
+
+<!--页面底栏按钮-->
+<view class="footer-bar">
+	<button class="white-button" open-type="contact">
+		<text class="iconfont icon-service" />
+		联系客服
+	</button>
+	<button class="white-button" open-type="share">
+		<text class="iconfont icon-share" />
+		分享
+	</button>
+	<button class="white-button" bindtap="gotoCart">
+		<text class="iconfont icon-cart-Empty" />
+		购物车
+	</button>
+	<button class="add-cart" hover-class="add-cart-hover">
+		加入购物车
+	</button>
+	<button class="buy-now" hover-class="buy-now-hover">
+		立即购买
+	</button>
+</view>
