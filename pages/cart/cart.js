@@ -1,66 +1,95 @@
 // pages/cart/cart.js
 Page({
-
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-
+		cartData: [],
+		totalValue: 0,
+		totalCount: 0,
+		allChecked: false
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-
+		let cartData = wx.getStorageSync('cart');
+		cartData.forEach(i => i.checked = false);
+		this.setData({
+			cartData
+		})
 	},
 
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {
-
+	handleItemCheck(e) {
+		let {
+			index
+		} = e.currentTarget.dataset;
+		let {
+			cartData
+		} = this.data;
+		let {
+			checked
+		} = cartData[index];
+		cartData[index].checked = !checked;
+		let allChecked = cartData.every(i => i.checked);
+		this.setData({
+			cartData,
+			allChecked
+		})
+		this.calcTotal();
 	},
 
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow: function () {
-
+	handleCheckAll(e) {
+		let {
+			cartData,
+			allChecked
+		} = this.data;
+		cartData.forEach(i => i.checked = !allChecked);
+		this.setData({
+			allChecked: !allChecked,
+			cartData
+		})
+		this.calcTotal();
 	},
 
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function () {
+	handleChangeNum(e) {
+		let {
+			index,
+			symbol
+		} = e.currentTarget.dataset;
+		let {
+			cartData
+		} = this.data;
+		if (symbol == "+") {
+			cartData[index].num += 1;
+		} else {
+			cartData[index].num -= 1;
+		}
+		if (cartData[index].checked) {
+			this.calcTotal();
+		}
+		this.setData({
+			cartData
+		})
+		wx.setStorage({
+			key: 'cart',
+			data: cartData
+		});
 
 	},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {
-
-	},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {
-
-	},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {
-
-	},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {
-
+	calcTotal() {
+		let totalValue = 0,
+			totalCount = 0;
+		this.data.cartData.forEach((item, index) => {
+			if (item.checked) {
+				totalValue += item.num * item.goods_price;
+				totalCount += item.num;
+			}
+		})
+		this.setData({
+			totalValue,
+			totalCount
+		})
 	}
 })

@@ -1,10 +1,25 @@
 <!--pages/goods_detail/goods_detail.wxml-->
 <!--轮播图-->
 
-<swiper class="detail-swiper" indicator-dots indicator-color="rgba(0,0,0,.3)" autoplay circular="false">
-	<swiper-item class="detail-swiper-item" wx:for="{{goodsDetail.pics}}" wx:key="pics_id" bindtap="handlePreviewImage"
-		data-index="{{index}}">
-		<image class="" src="{{item.pics_mid}}" mode="widthFix" />
+<swiper
+ class="detail-swiper"
+ indicator-dots
+ indicator-color="rgba(0,0,0,.3)"
+ autoplay
+ circular="false"
+>
+	<swiper-item
+	 class="detail-swiper-item"
+	 wx:for="{{goodsDetail.pics}}"
+	 wx:key="pics_id"
+	 bindtap="handlePreviewImage"
+	 data-index="{{index}}"
+	>
+		<image
+		 class=""
+		 src="{{item.pics_mid}}"
+		 mode="widthFix"
+		/>
 	</swiper-item>
 </swiper>
 
@@ -17,6 +32,7 @@
 		</view>
 		<view class="goods-shoucang">
 			<text class="iconfont icon-shoucang" />
+
 			收藏
 		</view>
 	</view>
@@ -42,10 +58,11 @@
 		<text class="iconfont icon-cart-Empty" />
 		购物车
 	</button>
-	<button class="add-cart" hover-class="add-cart-hover">
+	<button class="add-cart" hover-class="add-cart-hover" bindtap="handleAddCart">
 		加入购物车
 	</button>
 	<button class="buy-now" hover-class="buy-now-hover">
 		立即购买
 	</button>
 </view>
+

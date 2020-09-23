@@ -22,7 +22,7 @@
         "uploadWithSourceMap": true,
         "compileHotReLoad": false,
         "useMultiFrameRuntime": false,
-        "useApiHook": true,
+        "useApiHook": false,
         "babelSetting": {
             "ignore": [],
             "disablePlugins": [],
@@ -36,8 +36,8 @@
     },
     "compileType": "miniprogram",
     "libVersion": "2.12.2",
-    "appid": "wxac88bfe5b61d55cd",
-    "projectname": "HMYG",
+    "appid": "wx0e7a034293f225b7",
+    "projectname": "HMYG-miniapp",
     "debugOptions": {
         "hidedInDevtools": []
     },
@@ -81,6 +81,20 @@
                     "name": "pages/goods_detail/goods_detail",
                     "pathName": "pages/goods_detail/goods_detail",
                     "query": "goods_id=50969",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/goods_detail/goods_detail",
+                    "pathName": "pages/goods_detail/goods_detail",
+                    "query": "goods_id=3038",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/cart/cart",
+                    "pathName": "pages/cart/cart",
+                    "query": "",
                     "scene": null
                 }
             ]
