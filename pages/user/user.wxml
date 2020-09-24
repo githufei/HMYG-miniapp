@@ -25,7 +25,7 @@
 </view>
 
 <view class="section orders">
-	<view>我的订单</view>
+	<view class="text-row title">我的订单</view>
 	<view class="section-row order-row">
 		<view class="section-item">
 			<text class="iconfont icon-dingdan"></text>
@@ -46,11 +46,11 @@
 	</view>
 </view>
 
-<view class="section address">收货地址管理</view>
+<view class="section text-row">收货地址管理</view>
 
 <view class="section">
-	<view>联系客服</view>
-	<view>意见反馈</view>
-	<view>关于我们</view>
+	<view class="text-row">联系客服</view>
+	<view class="text-row">意见反馈</view>
+	<view class="text-row">关于我们</view>
 </view>
 

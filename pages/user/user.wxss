@@ -1,5 +1,5 @@
 page {
-  color: #333;
+  color: #555;
   background-color: #F6F6F6;
 }
 .avatar {
@@ -9,6 +9,7 @@ page {
   justify-content: space-evenly;
   background-color: aqua;
   height: 40vh;
+  margin-bottom: -80rpx;
 }
 .avatar image {
   width: 160rpx;
@@ -20,12 +21,17 @@ page {
 .avatar .user-name {
   color: #fff;
 }
+.logs .num {
+  color: var(--themeColor);
+}
 .section {
-  margin: 20rpx;
-  background-color: blueviolet;
+  margin: 20rpx 30rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
 }
 .section-row {
   display: flex;
+  padding: 20rpx 0;
 }
 .section-row .section-item {
   flex: 1;
@@ -35,5 +41,13 @@ page {
 }
 .section-row .section-item .iconfont {
   color: var(--themeColor);
-  font-size: 60rpx;
+  font-size: 56rpx;
+}
+.text-row {
+  padding: 20rpx;
+  border-bottom: 1px solid #eee;
+}
+.text-row.section,
+.text-row:last-child {
+  border-bottom: none;
 }

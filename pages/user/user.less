@@ -1,5 +1,5 @@
 page {
-	color: #333;
+	color: #555;
 	background-color: #F6F6F6;
 }
 
@@ -10,6 +10,7 @@ page {
 	justify-content: space-evenly;
 	background-color: aqua;
 	height: 40vh;
+	margin-bottom: -80rpx;
 
 	button {}
 
@@ -26,13 +27,21 @@ page {
 	}
 }
 
+.logs {
+	.num {
+		color: var(--themeColor);
+	}
+}
+
 .section {
-	margin: 20rpx;
-	background-color: blueviolet;
+	margin: 20rpx 30rpx;
+	background-color: #fff;
+	border-radius: 10rpx;
 }
 
 .section-row {
 	display: flex;
+	padding: 20rpx 0;
 
 	.section-item {
 		flex: 1;
@@ -42,15 +51,17 @@ page {
 
 		.iconfont {
 			color: var(--themeColor);
-			font-size: 60rpx;
+			font-size: 56rpx;
 		}
-
 	}
-
 }
 
-.address {}
+.text-row {
+	padding: 20rpx;
+	border-bottom: 1px solid #eee;
 
-view {
-	view {}
+	&.section,
+	&:last-child {
+		border-bottom: none;
+	}
 }
