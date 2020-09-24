@@ -1,66 +1,69 @@
 // pages/pay/pay.js
+import {
+	chooseAddress
+} from '../../utils/util.js'
 Page({
-
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-
+		cartData: [],
+		totalValue: 0,
+		totalCount: 0,
+		address: {}
 	},
 
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
-	onLoad: function (options) {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
 	onShow: function () {
-
+		let address = wx.getStorageSync('address') || {};
+		let cartData = (wx.getStorageSync('cart') || []).filter(i => i.checked);
+		this.setData({
+			address
+		});
+		this.setCart(cartData);
 	},
 
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function () {
-
+	setCart(cartData) {
+		let totalValue = 0,
+			totalCount = 0;
+		cartData.forEach((item, index) => {
+			if (item.checked) {
+				totalValue += item.num * item.goods_price;
+				totalCount += item.num;
+			}
+		})
+		this.setData({
+			totalValue,
+			totalCount,
+			cartData
+		})
+		wx.setStorageSync('cart', cartData);
 	},
 
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {
-
+	async changeAddress() {
+		let address = await chooseAddress();
+		this.setData({
+			address
+		});
+		wx.setStorage({
+			key: 'address',
+			data: address
+		});
 	},
 
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {
-
-	},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {
-
-	},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {
-
+	handlePay() {
+		let {
+			address
+		} = this.data;
+		if (!address.userName) {
+			wx.showToast({
+				title: '请先添加收货地址',
+				icon: "none",
+				mask: true
+			});
+		} else {
+			wx.navigateTo({
+				url: '/pages/pay/pay'
+			});
+		}
 	}
 })

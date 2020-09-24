@@ -74,7 +74,8 @@ Page({
 		} else {
 			cartData.push({
 				...goodsDetail,
-				num: 1
+				num: 1,
+				checked: true
 			})
 		}
 		wx.setStorageSync('cart', cartData);

@@ -1,11 +1,59 @@
 page {
   padding-bottom: 100rpx;
 }
-.section-name {
+.address-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.address-wrapper .get-address {
+  margin: 20rpx;
+  border: 1px solid var(--themeColor);
+  color: var(--themeColor);
+  border-radius: 8rpx;
+  padding: 10rpx 30rpx;
+  text-align: center;
+}
+.address-wrapper .get-address.get-address-hover {
+  color: var(--themeColorDark);
+  border-color: var(--themeColorDark);
+  background-color: #eee;
+}
+.address-wrapper .address-info {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+}
+.address-wrapper .address-info.address-info-hover {
+  background-color: #eee;
+}
+.address-wrapper .address {
+  margin-left: 20rpx;
+}
+.address-wrapper .address .user {
+  display: flex;
+  margin-bottom: 10rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+.address-wrapper .address .user .user-name {
+  margin-right: 20rpx;
+}
+.address-wrapper .address .address-detail {
+  font-size: 26rpx;
+  color: #666;
+}
+.header-bar {
   padding: 18rpx;
   font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
   border-top: 1px solid var(--themeColor);
   border-bottom: 1px solid var(--themeColor);
+}
+.header-bar .delete {
+  color: var(--themeColor);
+  font-size: 26rpx;
 }
 .goods-list .goods-item {
   display: flex;
@@ -14,7 +62,7 @@ page {
   padding: 16rpx;
 }
 .goods-list .goods-item checkbox {
-  transform: scale(0.6);
+  transform: scale(0.8);
 }
 .goods-list .goods-item .goods-pic {
   display: block;
@@ -66,8 +114,10 @@ page {
   width: 30rpx;
   height: 30rpx;
 }
-.goods-list .goods-item .goods-num view {
-  margin: 0 20rpx;
+.goods-list .goods-item .goods-num .num {
+  width: 60rpx;
+  text-align: center;
+  font-size: 26rpx;
 }
 .footer-bar {
   position: fixed;
@@ -82,8 +132,8 @@ page {
 }
 .footer-bar .check-all {
   color: #666;
-  font-size: 40rpx;
-  transform: scale(0.6, 0.6);
+  font-size: 32rpx;
+  transform: scale(0.8);
 }
 .footer-bar .total {
   display: flex;
@@ -108,7 +158,7 @@ page {
   color: #333;
   font-size: 22rpx;
 }
-.footer-bar .buy {
+.footer-bar .pay {
   border-radius: 0;
   background: var(--themeColor);
   font-size: 40rpx;
@@ -120,9 +170,9 @@ page {
   font-size: 28rpx;
   width: 180rpx;
 }
-.footer-bar .buy.buy-active {
+.footer-bar .pay.pay-active {
   background: var(--themeColorDark);
 }
-.footer-bar .buy[disabled] {
+.footer-bar .pay[disabled] {
   background: #d1d1d1;
 }

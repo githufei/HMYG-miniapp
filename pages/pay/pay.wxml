@@ -1,2 +1,69 @@
-<!--pages/pay/pay.wxml-->
-<text>pages/pay/pay.wxml</text>
+<!--pages/cart/cart.wxml-->
+
+<view class="address-wrapper">
+	<view
+	 bindtap="changeAddress"
+	 class="address-info"
+	 hover-class="address-info-hover"
+	>
+		<text class="iconfont icon-location"></text>
+		<view class="address">
+			<view class="user">
+				<view class="user-name">{{address.userName}}</view>
+				{{address.telNumber}}
+			</view>
+			<view class="address-detail">
+				{{address.provinceName + address.cityName+ address.countyName+ address.detailInfo}}
+			</view>
+		</view>
+	</view>
+</view>
+<view class="header-bar">购物车
+</view>
+<view class="goods-list empty-placeholder">
+	<view
+	 class="goods-item"
+	 wx:for="{{cartData}}"
+	 wx:key="goods_id"
+	>
+
+		<view class="goods-pic">
+			<image mode="widthFix" src="{{item.pics[0].pics_sma}}"></image>
+		</view>
+
+		<view class="goods-info">
+			<view class="goods-name">
+				{{item.goods_name}}
+			</view>
+			<view class="goods-num-price">
+				<view class="goods-price">¥ {{item.goods_price}}</view>
+				<view class="goods-num">
+					<view class="num">
+						× {{item.num}}
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="footer-bar" wx:if="{{cartData.length>0}}">
+	<view class="total">
+		<view class="total-value-wrapper">
+			合计：
+			<view class="total-value">
+				¥ {{totalValue}}
+			</view>
+		</view>
+		<view class="total-tip">包含运费</view>
+	</view>
+	<button
+	 class="pay"
+	 hover-class="pay-active"
+	 disabled="{{totalCount==0}}"
+	 bindtap="handlePay"
+	>
+		支付{{totalCount==0?"":"("+totalCount+")"}}
+	</button>
+</view>
+

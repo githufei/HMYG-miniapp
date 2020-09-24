@@ -1,2 +1,56 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<view class="avatar">
+	<!-- <button type="default" plain>登录</button> -->
+	<image src="https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg"></image>
+	<text class="user-name">用户名称</text>
+</view>
+
+<view class="section section-row logs">
+	<view class="section-item">
+		<text class="num">{{0}}</text>
+		<text>收藏的店铺</text>
+	</view>
+	<view class="section-item">
+		<text class="num">{{0}}</text>
+		<text>收藏的商品</text>
+	</view>
+	<view class="section-item">
+		<text class="num">{{0}}</text>
+		<text>关注的商品</text>
+	</view>
+	<view class="section-item">
+		<text class="num">{{0}}</text>
+		<text>我的足迹</text>
+	</view>
+</view>
+
+<view class="section orders">
+	<view>我的订单</view>
+	<view class="section-row order-row">
+		<view class="section-item">
+			<text class="iconfont icon-dingdan"></text>
+			<text>全部订单</text>
+		</view>
+		<view class="section-item">
+			<text class="iconfont icon-daifukuan"></text>
+			<text>待付款</text>
+		</view>
+		<view class="section-item">
+			<text class="iconfont icon-daishouhuo"></text>
+			<text>待收货</text>
+		</view>
+		<view class="section-item">
+			<text class="iconfont icon-dingdan"></text>
+			<text>退款/退货</text>
+		</view>
+	</view>
+</view>
+
+<view class="section address">收货地址管理</view>
+
+<view class="section">
+	<view>联系客服</view>
+	<view>意见反馈</view>
+	<view>关于我们</view>
+</view>
+

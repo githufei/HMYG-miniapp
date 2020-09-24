@@ -47,15 +47,15 @@
 <!--页面底栏按钮-->
 <view class="footer-bar">
 	<button class="white-button" open-type="contact">
-		<text class="iconfont icon-service" />
+		<text class="iconfont icon-service1" />
 		联系客服
 	</button>
 	<button class="white-button" open-type="share">
-		<text class="iconfont icon-share" />
+		<text class="iconfont icon-share1" />
 		分享
 	</button>
 	<button class="white-button" bindtap="gotoCart">
-		<text class="iconfont icon-cart-Empty" />
+		<text class="iconfont icon-cart" />
 		购物车
 	</button>
 	<button class="add-cart" hover-class="add-cart-hover" bindtap="handleAddCart">

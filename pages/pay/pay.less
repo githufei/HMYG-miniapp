@@ -1,0 +1,171 @@
+page {
+	padding-bottom: 100rpx;
+}
+
+.address-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.address-info {
+		display: flex;
+		align-items: center;
+		padding: 20rpx;
+
+		&.address-info-hover {
+			background-color: #eee;
+		}
+	}
+
+	.address {
+		margin-left: 20rpx;
+
+		.user {
+			display: flex;
+			margin-bottom: 10rpx;
+			font-size: 30rpx;
+			font-weight: 500;
+
+			.user-name {
+				margin-right: 20rpx;
+			}
+		}
+
+		.address-detail {
+			font-size: 26rpx;
+			color: #666;
+		}
+	}
+}
+
+.header-bar {
+	padding: 18rpx;
+	font-size: 30rpx;
+	display: flex;
+	justify-content: space-between;
+	border-top: 1px solid var(--themeColor);
+	border-bottom: 1px solid var(--themeColor);
+
+}
+
+.goods-list {
+	.goods-item {
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid #bbb;
+		padding: 16rpx;
+
+		.goods-pic {
+			display: block;
+			width: 220rpx;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			image {
+				width: 150rpx;
+				height: auto;
+			}
+		}
+
+		.goods-info {
+			flex: 1;
+		}
+
+		.goods-name {
+			color: #333;
+			font-size: 26rpx;
+			word-break: break-all;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.goods-num-price {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+			margin-top: 26rpx;
+		}
+
+		.goods-price {
+			color: var(--themeColor);
+			font-size: 34rpx;
+			font-weight: bold;
+		}
+
+		.goods-num {
+			display: flex;
+			align-items: center;
+			color: #666;
+
+			.num {
+				width: 60rpx;
+				text-align: center;
+				font-size: 26rpx;
+			}
+		}
+	}
+}
+
+.footer-bar {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 80rpx;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #fff;
+	border-top: 1px solid #bbb;
+
+	.total {
+		display: flex;
+		flex: 1;
+		font-size: 26rpx;
+		flex-direction: column;
+		align-items: flex-end;
+		margin-right: 10rpx;
+
+		.total-value-wrapper {
+			display: flex;
+			color: #333;
+			font-size: 22rpx;
+			align-items: baseline;
+
+			.total-value {
+				color: var(--themeColor);
+				font-size: 34rpx;
+				font-weight: bold;
+			}
+		}
+
+		.total-tip {
+			color: #333;
+			font-size: 22rpx;
+		}
+	}
+
+	.pay {
+		border-radius: 0;
+		background: var(--themeColor);
+		font-size: 40rpx;
+		color: #fff;
+		padding: 0;
+		margin: 0;
+		height: 80rpx;
+		line-height: 80rpx;
+		font-size: 28rpx;
+		width: 180rpx;
+
+		&.pay-active {
+			background: var(--themeColorDark);
+		}
+
+		&[disabled] {
+			background: #d1d1d1;
+		}
+	}
+}

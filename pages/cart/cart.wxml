@@ -1,6 +1,42 @@
 <!--pages/cart/cart.wxml-->
-<view class="section-name">购物车</view>
-<view class="goods-list">
+
+<view class="address-wrapper">
+	<view
+	 class="get-address"
+	 hover-class="get-address-hover"
+	 wx:if="{{!address.userName}}"
+	 bindtap="handleGetAddress"
+	>
+		获取收货地址
+	</view>
+	<view
+	 wx:else
+	 bindtap="changeAddress"
+	 class="address-info"
+	 hover-class="address-info-hover"
+	>
+		<text class="iconfont icon-location"></text>
+		<view class="address">
+			<view class="user">
+				<view class="user-name">{{address.userName}}</view>
+				{{address.telNumber}}
+			</view>
+			<view class="address-detail">
+				{{address.provinceName + address.cityName+ address.countyName+ address.detailInfo}}
+			</view>
+		</view>
+	</view>
+</view>
+<view class="header-bar">购物车
+	<view
+	 class="delete"
+	 hidden="{{totalCount==0}}"
+	 bindtap="handleDelete"
+	>
+		删除
+	</view>
+</view>
+<view class="goods-list empty-placeholder">
 	<view
 	 class="goods-item"
 	 wx:for="{{cartData}}"
@@ -18,8 +54,9 @@
 		</navigator>
 
 		<view class="goods-info">
-			<view class="goods-name">
-				{{item.goods_name}}</view>
+			<navigator class="goods-name" url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}">
+				{{item.goods_name}}
+			</navigator>
 			<view class="goods-num-price">
 				<view class="goods-price">¥ {{item.goods_price}}</view>
 				<view class="goods-num">
@@ -29,12 +66,12 @@
 					 type="default"
 					 bindtap="handleChangeNum"
 					 data-index="{{index}}"
-					 data-symbol="-"
-					 disabled="{{item.num<=0}}"
+					 data-operation="{{-1}}"
+					 disabled="{{item.num<2}}"
 					>
 						-
 					</button>
-					<view>
+					<view class="num">
 						{{item.num}}
 					</view>
 					<button
@@ -43,7 +80,7 @@
 					 plain="true"
 					 bindtap="handleChangeNum"
 					 data-index="{{index}}"
-					 data-symbol="+"
+					 data-operation="{{1}}"
 					>
 						+
 					</button>
@@ -53,7 +90,7 @@
 	</view>
 </view>
 
-<view class="footer-bar">
+<view class="footer-bar" wx:if="{{cartData.length>0}}">
 	<checkbox
 	 class="check-all"
 	 color="#E8113A"
@@ -71,9 +108,10 @@
 		<view class="total-tip">包含运费</view>
 	</view>
 	<button
-	 class="buy"
-	 hover-class="buy-active"
+	 class="pay"
+	 hover-class="pay-active"
 	 disabled="{{totalCount==0}}"
+	 bindtap="handlePay"
 	>
 		结算{{totalCount==0?"":"("+totalCount+")"}}
 	</button>

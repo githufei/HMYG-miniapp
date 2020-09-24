@@ -23,6 +23,39 @@ let request = (params) => {
 		});
 	});
 };
+
+// 获取用户的当前设置的 promise 形式
+let getSetting = () => {
+	return new Promise((resolve, reject) => {
+		wx.getSetting({
+			success: (result) => resolve(result),
+			fail: (err) => reject(err),
+		})
+	})
+}
+
+// 获取用户收货地址的 promise 形式
+let chooseAddress = () => {
+	return new Promise((resolve, reject) => {
+		wx.chooseAddress({
+			success: (result) => resolve(result),
+			fail: (err) => reject(err),
+		});
+	})
+}
+
+let openSetting = () => {
+	return new Promise((resolve, reject) => {
+		wx.openSetting({
+			success: (result) => resolve(result),
+			fail: (err) => reject(err)
+		});
+	})
+}
+
 export {
-	request
+	request,
+	getSetting,
+	chooseAddress,
+	openSetting
 };

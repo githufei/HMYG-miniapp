@@ -1,13 +1,19 @@
 <!--搜索框-->
 <Search></Search>
 <!--页签-->
-<Tabs tabs="{{tabs}}" scrollTop="{{scrollTop}}" bindchangeActiveTab="changeActiveTab">
-	<navigator class="goods-item" wx:for="{{goodsList}}" wx:key="goods_id"
-		url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}">
+<Tabs
+ tabs="{{tabs}}"
+ scrollTop="{{scrollTop}}"
+ bindchangeActiveTab="changeActiveTab"
+>
+	<navigator
+	 class="goods-item"
+	 wx:for="{{goodsList}}"
+	 wx:key="goods_id"
+	 url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}"
+	>
 		<view class="goods-logo">
-			<image
-				src="{{item.goods_small_logo||'https://ss1.baidu.com/6ON1bjeh1BF3odCf/it/u=419546218,4057480222&fm=15&gp=0.jpg'}}"
-				mode="aspectFit" />
+			<image src="{{item.goods_small_logo||'https://ss1.baidu.com/6ON1bjeh1BF3odCf/it/u=419546218,4057480222&fm=15&gp=0.jpg'}}" mode="aspectFit" />
 		</view>
 		<view class="goods-info">
 			<view class="goods-name">{{item.goods_name}}</view>
@@ -15,4 +21,5 @@
 		</view>
 	</navigator>
 </Tabs>
-<view class="bottom-tip" wx:if="{{goodsList.length>0 && !hasMore}}"> 没有更多数据了 </view>
+<view class="no-more-tip" wx:if="{{goodsList.length>0 && !hasMore}}"> 没有更多数据了 </view>
+

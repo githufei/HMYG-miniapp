@@ -2,11 +2,69 @@ page {
     padding-bottom: 100rpx;
 }
 
-.section-name {
+.address-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .get-address {
+        margin: 20rpx;
+        border: 1px solid var(--themeColor);
+        color: var(--themeColor);
+        border-radius: 8rpx;
+        padding: 10rpx 30rpx;
+        text-align: center;
+
+        &.get-address-hover {
+            color: var(--themeColorDark);
+            border-color: var(--themeColorDark);
+            background-color: #eee;
+        }
+    }
+
+    .address-info {
+        display: flex;
+        align-items: center;
+        padding: 20rpx;
+
+        &.address-info-hover {
+            background-color: #eee;
+        }
+    }
+
+    .address {
+        margin-left: 20rpx;
+
+        .user {
+            display: flex;
+            margin-bottom: 10rpx;
+            font-size: 30rpx;
+            font-weight: 500;
+
+            .user-name {
+                margin-right: 20rpx;
+            }
+        }
+
+        .address-detail {
+            font-size: 26rpx;
+            color: #666;
+        }
+    }
+}
+
+.header-bar {
     padding: 18rpx;
     font-size: 30rpx;
+    display: flex;
+    justify-content: space-between;
     border-top: 1px solid var(--themeColor);
     border-bottom: 1px solid var(--themeColor);
+
+    .delete {
+        color: var(--themeColor);
+        font-size: 26rpx;
+    }
 }
 
 .goods-list {
@@ -17,7 +75,7 @@ page {
         padding: 16rpx;
 
         checkbox {
-            transform: scale(0.6);
+            transform: scale(0.8);
         }
 
         .goods-pic {
@@ -77,8 +135,10 @@ page {
                 height: 30rpx;
             }
 
-            view {
-                margin: 0 20rpx;
+            .num {
+                width: 60rpx;
+                text-align: center;
+                font-size: 26rpx;
             }
         }
     }
@@ -97,8 +157,8 @@ page {
 
     .check-all {
         color: #666;
-        font-size: 40rpx;
-        transform: scale(0.6, 0.6);
+        font-size: 32rpx;
+        transform: scale(0.8);
     }
 
     .total {
@@ -128,7 +188,7 @@ page {
         }
     }
 
-    .buy {
+    .pay {
         border-radius: 0;
         background: var(--themeColor);
         font-size: 40rpx;
@@ -140,7 +200,7 @@ page {
         font-size: 28rpx;
         width: 180rpx;
 
-        &.buy-active {
+        &.pay-active {
             background: var(--themeColorDark);
         }
 
