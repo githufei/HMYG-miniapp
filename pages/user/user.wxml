@@ -1,56 +1,76 @@
 <!--pages/user/user.wxml-->
-<view class="avatar">
-	<!-- <button type="default" plain>登录</button> -->
-	<image src="https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg"></image>
-	<text class="user-name">用户名称</text>
+<view class="avatar-wrapper">
+	<block wx:if="{{userInfo.nickName}}">
+		<image
+		 class="avatar-bg"
+		 src="{{userInfo.avatarUrl}}"
+		 mode="aspectFill"
+		></image>
+		<view class="avatar-content">
+			<image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+			<text class="user-name">{{userInfo.nickName}}</text>
+		</view>
+	</block>
+	<button
+	 type="default"
+	 plain
+	 open-type="getUserInfo"
+	 bindgetuserinfo="getUserInfo"
+	 wx:else
+	>登录
+	</button>
 </view>
 
-<view class="section section-row logs">
-	<view class="section-item">
+<view class="section flex-row">
+	<navigator url="" class="flex-item">
 		<text class="num">{{0}}</text>
 		<text>收藏的店铺</text>
-	</view>
-	<view class="section-item">
+	</navigator>
+	<navigator url="" class="flex-item">
 		<text class="num">{{0}}</text>
 		<text>收藏的商品</text>
-	</view>
-	<view class="section-item">
+	</navigator>
+	<navigator url="" class="flex-item">
 		<text class="num">{{0}}</text>
 		<text>关注的商品</text>
-	</view>
-	<view class="section-item">
+	</navigator>
+	<navigator url="" class="flex-item">
 		<text class="num">{{0}}</text>
 		<text>我的足迹</text>
-	</view>
+	</navigator>
 </view>
 
-<view class="section orders">
+<view class="section">
 	<view class="text-row title">我的订单</view>
-	<view class="section-row order-row">
-		<view class="section-item">
+	<view class="flex-row">
+		<navigator url="/pages/order/order?type=1" class="flex-item">
 			<text class="iconfont icon-dingdan"></text>
 			<text>全部订单</text>
-		</view>
-		<view class="section-item">
+		</navigator>
+		<navigator url="/pages/order/order?type=2" class="flex-item">
 			<text class="iconfont icon-daifukuan"></text>
 			<text>待付款</text>
-		</view>
-		<view class="section-item">
+		</navigator>
+		<navigator url="/pages/order/order?type=3" class="flex-item">
 			<text class="iconfont icon-daishouhuo"></text>
 			<text>待收货</text>
-		</view>
-		<view class="section-item">
+		</navigator>
+		<navigator url="/pages/order/order?type=4" class="flex-item">
 			<text class="iconfont icon-dingdan"></text>
 			<text>退款/退货</text>
-		</view>
+		</navigator>
 	</view>
 </view>
 
 <view class="section text-row">收货地址管理</view>
 
 <view class="section">
-	<view class="text-row">联系客服</view>
-	<view class="text-row">意见反馈</view>
+	<view class="text-row" bindtap="contact">联系客服
+		<text style="float:right">400-400-8888</text>
+	</view>
+	<navigator url="/pages/feedback/feedback" class="text-row">意见反馈</navigator>
 	<view class="text-row">关于我们</view>
 </view>
+
+<view class="section text-row">把应用推荐给其他人</view>
 

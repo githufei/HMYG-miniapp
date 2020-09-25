@@ -3,47 +3,57 @@ page {
 	background-color: #F6F6F6;
 }
 
-.avatar {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-evenly;
-	background-color: aqua;
+.avatar-wrapper {
+	background-color: var(--themeColorLight);
 	height: 40vh;
 	margin-bottom: -80rpx;
+	display: flex;
+	align-items: center;
 
-	button {}
-
-	image {
-		width: 160rpx;
-		height: 160rpx;
-		overflow: hidden;
-		border-radius: 50%;
-		box-shadow: 0 0 4px 0 #bbb;
+	.avatar-bg {
+		width: 100%;
+		height: 40vh;
+		filter: blur(20rpx);
 	}
 
-	.user-name {
-		color: #fff;
-	}
-}
+	.avatar-content {
+		position: absolute;
+		top: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-evenly;
+		width: 100%;
+		height: 40vh;
 
-.logs {
-	.num {
-		color: var(--themeColor);
+		.avatar {
+			width: 160rpx;
+			height: 160rpx;
+			overflow: hidden;
+			border-radius: 50%;
+			box-shadow: 0 0 4px 0 #bbb;
+		}
+
+		.user-name {
+			color: #fff;
+		}
 	}
 }
 
 .section {
+	position: relative;
 	margin: 20rpx 30rpx;
 	background-color: #fff;
 	border-radius: 10rpx;
 }
 
-.section-row {
+.flex-row {
 	display: flex;
-	padding: 20rpx 0;
+	font-size: 24rpx;
+	color: #777;
 
-	.section-item {
+	.flex-item {
+		padding: 20rpx 0;
 		flex: 1;
 		display: flex;
 		flex-direction: column;
@@ -52,6 +62,10 @@ page {
 		.iconfont {
 			color: var(--themeColor);
 			font-size: 56rpx;
+		}
+
+		.num {
+			color: var(--themeColor);
 		}
 	}
 }

@@ -23,7 +23,7 @@
 <view class="goods-list empty-placeholder">
 	<view
 	 class="goods-item"
-	 wx:for="{{cartData}}"
+	 wx:for="{{payGoods}}"
 	 wx:key="goods_id"
 	>
 
@@ -47,7 +47,7 @@
 	</view>
 </view>
 
-<view class="footer-bar" wx:if="{{cartData.length>0}}">
+<view class="footer-bar" wx:if="{{payGoods.length>0}}">
 	<view class="total">
 		<view class="total-value-wrapper">
 			合计：

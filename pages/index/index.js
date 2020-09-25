@@ -1,6 +1,5 @@
-import {
-	request
-} from '../../utils/util.js';
+import request from '../../request/index.js';
+
 Page({
 	/**
 	 * 页面的初始数据

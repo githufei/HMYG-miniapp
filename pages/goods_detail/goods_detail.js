@@ -1,7 +1,6 @@
 // pages/goods_detail/goods_detail.js
-import {
-	request
-} from '../../utils/util.js';
+import request from '../../request/index.js';
+
 Page({
 
 	/**

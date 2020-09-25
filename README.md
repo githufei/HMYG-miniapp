@@ -4,3 +4,6 @@ https://www.bilibili.com/video/BV1nE41117BQ?p=82
 
 ## 接口地址
 https://www.showdoc.com.cn/128719739414963
+
+## token
+"token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIzLCJpYXQiOjE1NjQ3MzAwNzksImV4cCI6MTAwMTU2NDczMDA3OH0.YPt-XeLnjV-_1ITaXGY2FhxmCe4NvXuRnRB8OMCfnPo"

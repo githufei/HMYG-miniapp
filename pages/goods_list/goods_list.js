@@ -1,8 +1,7 @@
 // pages/goods_list/goods_list.js
 
-import {
-	request
-} from '../../utils/util.js'
+import request from '../../request/index.js';
+
 Page({
 	/**
 	 * 页面的初始数据
