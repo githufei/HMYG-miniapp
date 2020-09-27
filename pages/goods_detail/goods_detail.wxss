@@ -49,8 +49,11 @@ page {
   color: #666;
   font-size: 22rpx;
 }
-.goods-info .goods-shoucang .icon-shoucang {
+.goods-info .goods-shoucang .iconfont {
   font-size: 42rpx;
+}
+.goods-info .goods-shoucang .icon-shoucang1 {
+  color: var(--themeColor);
 }
 .goods-detail-info {
   margin-top: 10rpx;

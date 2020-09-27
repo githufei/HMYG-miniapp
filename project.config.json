@@ -131,6 +131,13 @@
                     "pathName": "pages/search/search",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/collect/collect",
+                    "pathName": "pages/collect/collect",
+                    "query": "query=爆款",
+                    "scene": null
                 }
             ]
         }

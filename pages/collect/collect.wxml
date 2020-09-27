@@ -1,2 +1,25 @@
 <!--pages/collect/collect.wxml-->
-<text>pages/collect/collect.wxml</text>
+<Tabs tabs="{{tabs}}" bindchangeActiveTab="changeActiveTab">
+	<block wx:if="{{tabs[0].isActive}}">
+		<view class="shortcut" wx:if="{{collect.length}}">
+			<text class="active">全部</text>
+			<text>正在热卖</text>
+			<text>即将上线</text>
+		</view>
+		<navigator
+		 class="goods-item"
+		 wx:for="{{collect}}"
+		 wx:key="goods_id"
+		 url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}"
+		>
+			<view class="goods-logo">
+				<image src="{{item.pics[0].pics_sma||'https://ss1.baidu.com/6ON1bjeh1BF3odCf/it/u=419546218,4057480222&fm=15&gp=0.jpg'}}" mode="aspectFit" />
+			</view>
+			<view class="goods-info">
+				<view class="goods-name">{{item.goods_name}}</view>
+				<view class="goods-price">¥ {{item.goods_price}}</view>
+			</view>
+		</navigator>
+	</block>
+</Tabs>
+

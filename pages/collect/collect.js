@@ -5,62 +5,58 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-
+		tabs: [{
+				text: "商品收藏",
+				code: "goods",
+				isActive: true,
+			},
+			{
+				text: "品牌收藏",
+				code: "brand",
+				isActive: false,
+			}, {
+				text: "店铺收藏",
+				code: "shop",
+				isActive: false,
+			}, {
+				text: "浏览足迹",
+				code: "footprint",
+				isActive: false,
+			}
+		]
 	},
 
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
-	onLoad: function (options) {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
 	onShow: function () {
+		let pages = getCurrentPages();
+		let {
+			tab = "goods"
+		} = pages[pages.length - 1].options;
+		let {
+			tabs
+		} = this.data;
+		tabs.forEach(i => i.isActive = i.code == tab);
+		console.log(tabs, 123);
 
+		let collect = wx.getStorageSync('collect') || [];
+		this.setData({
+			collect,
+			tabs
+		});
 	},
-
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function () {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {
-
-	},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {
-
-	},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {
-
-	},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {
-
+	// 点击切换激活页签
+	changeActiveTab(e) {
+		let activeIndex = e.detail.index;
+		let {
+			tabs
+		} = this.data;
+		let prevActive = tabs.findIndex(i => i.isActive == true);
+		if (activeIndex !== prevActive) {
+			tabs.forEach((item, index) => {
+				item.isActive = activeIndex == index;
+			})
+			this.setData({
+				tabs
+			})
+		}
 	}
 })

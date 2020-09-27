@@ -8,7 +8,8 @@ Page({
 	 */
 	data: {
 		goodsDetail: {},
-		previewImageUrls: []
+		previewImageUrls: [],
+		isCollected: false
 	},
 
 	/**
@@ -16,6 +17,11 @@ Page({
 	 */
 	onLoad: function (options) {
 		this.requestGoodsDetail(options.goods_id);
+		let collect = wx.getStorageSync('collect') || [];
+		let isCollected = collect.some(i => i.goods_id == options.goods_id);
+		this.setData({
+			isCollected
+		});
 	},
 
 	async requestGoodsDetail(id) {
@@ -81,6 +87,29 @@ Page({
 		wx.showToast({
 			title: '加入购物车成功',
 			icon: 'success',
+			mask: true
+		});
+	},
+
+	// 商品收藏功能
+	handleCollect() {
+		let {
+			isCollected,
+			goodsDetail
+		} = this.data;
+		let collect = wx.getStorageSync('collect') || [];
+		if (isCollected) {
+			let index = collect.findIndex(i => i.goods_id == goodsDetail.goods_id);
+			collect.splice(index, 1);
+		} else {
+			collect.push(goodsDetail);
+		}
+		this.setData({
+			isCollected: !isCollected
+		});
+		wx.setStorageSync("collect", collect);
+		wx.showToast({
+			title: isCollected ? '取消收藏成功' : "收藏成功",
 			mask: true
 		});
 	}

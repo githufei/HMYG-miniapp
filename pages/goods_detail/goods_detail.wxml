@@ -30,9 +30,8 @@
 		<view class="goods-name">
 			{{goodsDetail.goods_name}}
 		</view>
-		<view class="goods-shoucang">
-			<text class="iconfont icon-shoucang" />
-
+		<view class="goods-shoucang" bindtap="handleCollect">
+			<text class="iconfont {{isCollected?'icon-shoucang1':'icon-shoucang'}}"></text>
 			收藏
 		</view>
 	</view>
@@ -48,6 +47,8 @@
 <view class="footer-bar">
 	<button class="white-button" open-type="contact">
 		<text class="iconfont icon-service1" />
+
+
 		联系客服
 	</button>
 	<button class="white-button" open-type="share">

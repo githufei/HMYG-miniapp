@@ -22,19 +22,19 @@
 </view>
 
 <view class="section flex-row">
-	<navigator url="" class="flex-item">
+	<navigator url="/pages/collect/collect?tab=goods" class="flex-item">
+		<text class="num">{{collect.length}}</text>
+		<text>收藏的商品</text>
+	</navigator>
+	<navigator url="/pages/collect/collect?tab=brand" class="flex-item">
+		<text class="num">{{0}}</text>
+		<text>关注的品牌</text>
+	</navigator>
+	<navigator url="/pages/collect/collect?tab=shop" class="flex-item">
 		<text class="num">{{0}}</text>
 		<text>收藏的店铺</text>
 	</navigator>
-	<navigator url="" class="flex-item">
-		<text class="num">{{0}}</text>
-		<text>收藏的商品</text>
-	</navigator>
-	<navigator url="" class="flex-item">
-		<text class="num">{{0}}</text>
-		<text>关注的商品</text>
-	</navigator>
-	<navigator url="" class="flex-item">
+	<navigator url="/pages/collect/collect?tab=footprint" class="flex-item">
 		<text class="num">{{0}}</text>
 		<text>我的足迹</text>
 	</navigator>
