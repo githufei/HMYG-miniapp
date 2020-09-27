@@ -1,1 +1,14 @@
-/* pages/order/order.wxss */
+.order-list .order-item {
+  border-bottom: 1px solid #eee;
+  padding: 20rpx;
+}
+.order-list .order-item .field {
+  padding: 6rpx 0;
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+}
+.order-list .order-item .field.price .field-value {
+  color: var(--themeColor);
+  font-size: 30rpx;
+}

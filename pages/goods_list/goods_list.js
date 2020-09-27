@@ -1,5 +1,4 @@
 // pages/goods_list/goods_list.js
-
 import request from '../../request/index.js';
 
 Page({
@@ -34,28 +33,12 @@ Page({
 		pagesize: "15",
 		orderBy: "default"
 	},
-	// 点击切换激活页签
-	changeActiveTab(e) {
-		let activeIndex = e.detail.index;
-		let {
-			tabs
-		} = this.data;
-		let prevActive = tabs.findIndex(i => i.isActive == true);
-		if (activeIndex !== prevActive) {
-			tabs.forEach((item, index) => {
-				item.isActive = activeIndex == index;
-			})
-			this.setData({
-				tabs
-			})
-			this.queryParams.orderBy = tabs[activeIndex].value;
-			this.queryGoodsList();
-		}
-	},
 	onLoad(options) {
-		this.queryParams.cid = options.cid;
+		this.queryParams.cid = options.cid || '';
+		this.queryParams.query = options.query || '';
 		this.queryGoodsList()
 	},
+
 	onReachBottom() {
 		if (this.data.hasMore) {
 			this.queryGoodsList();
@@ -69,6 +52,8 @@ Page({
 		this.queryGoodsList()
 	},
 	async queryGoodsList() {
+		console.log(this.queryParams);
+
 		let pageData = await request({
 			url: '/goods/search',
 			data: {
@@ -88,5 +73,23 @@ Page({
 			hasMore: pageData.total - pagenum * pagesize > 0
 		})
 		this.queryParams.pagenum++;
+	},
+	// 点击切换激活页签
+	changeActiveTab(e) {
+		let activeIndex = e.detail.index;
+		let {
+			tabs
+		} = this.data;
+		let prevActive = tabs.findIndex(i => i.isActive == true);
+		if (activeIndex !== prevActive) {
+			tabs.forEach((item, index) => {
+				item.isActive = activeIndex == index;
+			})
+			this.setData({
+				tabs
+			})
+			this.queryParams.orderBy = tabs[activeIndex].value;
+			this.queryGoodsList();
+		}
 	}
 })

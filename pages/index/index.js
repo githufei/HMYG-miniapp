@@ -24,6 +24,7 @@ Page({
 		}).then((
 			data
 		) => {
+			data.forEach(i => i.goods_id = i.navigator_url.split('?')[1].replace('goods_id=', ''));
 			this.setData({
 				swiperList: data
 			});
@@ -46,6 +47,11 @@ Page({
 		}).then((
 			data
 		) => {
+			data.forEach(i => {
+				i.product_list.forEach(v => {
+					v.query = v.navigator_url.split('?')[1].replace('query=', '')
+				})
+			})
 			this.setData({
 				floorList: data
 			});

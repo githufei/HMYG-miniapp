@@ -1,27 +1,57 @@
 <!-- 搜索框 -->
-<Search />
+<Search/>
 <!-- 轮播图 -->
-<swiper class="index_swiper" indicator-dots autoplay circular>
-	<swiper-item class="index_swiper_item" wx:for="{{swiperList}}" wx:key="goods_id">
-		<navigator>
+<swiper
+ class="index_swiper"
+ indicator-dots
+ autoplay
+ circular
+>
+	<swiper-item
+	 class="index_swiper_item"
+	 wx:for="{{swiperList}}"
+	 wx:key="goods_id"
+	>
+		<navigator url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}">
 			<image src="{{item.image_src}}" />
 		</navigator>
 	</swiper-item>
 </swiper>
 <!-- 分类导航 -->
 <view class="index_category">
-	<navigator url="" wx:for="{{catList}}" wx:key="name">
+	<!-- 跳到 tab 页，需要加 open-type-->
+	<navigator
+	 url="/pages/category/category"
+	 open-type="switchTab"
+	 wx:for="{{catList}}"
+	 wx:key="name"
+	>
 		<image src="{{item.image_src}}" mode="widthFix" />
 	</navigator>
 </view>
 <!-- 楼层 -->
 <view class="index_floor">
-	<view class="floor-section" wx:for="{{floorList}}" wx:key="index" wx:for-item="item1" wx:for-index="index1">
-		<image class="floor-title" src="{{item1.floor_title.image_src}}" mode="widthFix" />
+	<view
+	 class="floor-section"
+	 wx:for="{{floorList}}"
+	 wx:key="index"
+	 wx:for-item="item1"
+	 wx:for-index="index1"
+	>
+		<image
+		 class="floor-title"
+		 src="{{item1.floor_title.image_src}}"
+		 mode="widthFix"
+		/>
 		<view class="floor_items">
-			<navigator wx:for="{{item1.product_list}}" wx:key="name" url="{{item.navigator_url}}">
+			<navigator
+			 wx:for="{{item1.product_list}}"
+			 wx:key="name"
+			 url="/pages/goods_list/goods_list?query={{item.query}}"
+			>
 				<image class="" src="{{item.image_src}}" />
 			</navigator>
 		</view>
 	</view>
 </view>
+

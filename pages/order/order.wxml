@@ -3,5 +3,28 @@
  tabs="{{tabs}}"
  scrollTop="{{scrollTop}}"
  bindchangeActiveTab="changeActiveTab"
-></Tabs>
+>
+	<view class="order-list">
+		<view
+		 class="order-item"
+		 wx:for="{{orders}}"
+		 wx:key="order_id"
+		>
+			<view class="field order-number">
+				<view class="field-name">订单编号</view>
+				<view class="field-value">{{item.order_number}}</view>
+			</view>
+			<view class="field price">
+				<view class="field-name">订单价格</view>
+				<view class="field-value">¥ {{item.order_price}}</view>
+			</view>
+			<view class="field date">
+				<view class="field-name">订单日期</view>
+				<!-- create_time 是时间戳，转成正常的日期格式 -->
+				<view class="field-value">{{item.create_time_cn}}</view>
+			</view>
+		</view>
+	</view>
+
+</Tabs>
 

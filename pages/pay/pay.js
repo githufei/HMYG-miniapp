@@ -76,9 +76,6 @@ Page({
 				} = await request({
 					url: "/my/orders/create",
 					method: "POST",
-					header: {
-						Authorization: token
-					},
 					data: {
 						order_price: totalValue, // 订单总价格
 						consignee_addr: address.full, // 收货地址
@@ -98,9 +95,6 @@ Page({
 				} = await request({
 					url: "/my/orders/req_unifiedorder",
 					method: "POST",
-					header: {
-						Authorization: token
-					},
 					data: {
 						order_number
 					}
@@ -114,9 +108,6 @@ Page({
 				let result = await request({
 					url: "/my/orders/chkOrder",
 					method: "POST",
-					header: {
-						Authorization: token
-					},
 					data: {
 						order_number
 					}

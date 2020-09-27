@@ -73,7 +73,7 @@
                     "id": 0,
                     "name": "pages/goods_list/goods_list",
                     "pathName": "pages/goods_list/goods_list",
-                    "query": "cid=78",
+                    "query": "query=爆款",
                     "scene": null
                 },
                 {
@@ -116,6 +116,20 @@
                     "name": "pages/order/order",
                     "pathName": "pages/order/order",
                     "query": "type=1",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/order/order",
+                    "pathName": "pages/order/order",
+                    "query": "type=1",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/search/search",
+                    "pathName": "pages/search/search",
+                    "query": "",
                     "scene": null
                 }
             ]

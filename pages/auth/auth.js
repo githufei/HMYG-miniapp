@@ -19,6 +19,7 @@ Page({
 		} = await login();
 
 		// 发送请求，获取 token
+		/* 		
 		let res = await request({
 			url: "/users/wxlogin",
 			method: "POST",
@@ -29,7 +30,8 @@ Page({
 				iv,
 				code
 			}
-		})
+		}) 
+		*/
 		// 正常情况下从 res 中就可以获得 token 值，但由于后台权限的问题，用自己的用户是登陆不了的，使用一个能用的假 token
 		let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIzLCJpYXQiOjE1NjQ3MzAwNzksImV4cCI6MTAwMTU2NDczMDA3OH0.YPt-XeLnjV-_1ITaXGY2FhxmCe4NvXuRnRB8OMCfnPo";
 		// 将 token 存在缓存中，回到上一个页面

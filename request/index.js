@@ -5,13 +5,33 @@ let request = (params) => {
 	wx.showLoading({
 		title: '加载中',
 		mask: true
-	})
+	});
+	let header = {
+		...params.header
+	};
+	// 请求的 url 中带有 /my/ 的接口，请求头需要带上 toten
+	if (params.url.includes('/my/')) {
+		header.Authorization = wx.getStorageSync('token');
+	}
 	return new Promise((resolve, reject) => {
 		wx.request({
 			...params,
 			url: baseUrl + params.url,
-			success: (result) => {
-				resolve(result.data.message)
+			header,
+			success: ({
+				data
+			}) => {
+				if (data.meta.status == 200) {
+					resolve(data.message)
+				} else {
+					wx.showModal({
+						title: '提示',
+						content: data.meta.msg,
+						showCancel: false,
+						confirmText: '确定',
+						confirmColor: '#3CC51F'
+					});
+				}
 			},
 			fail: (err) => reject(err),
 			complete: () => {

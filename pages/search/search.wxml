@@ -1,2 +1,26 @@
 <!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<view class="search-bar">
+	<input
+	 type="text"
+	 value="{{searchVal}}"
+	 bindinput="handleInput"
+	></input>
+	<button
+	 class="cancel"
+	 bindtap="handleCancel"
+	 hidden="{{!searchVal}}"
+	>取消
+	</button>
+</view>
+
+<view class="search-result empty-placeholder">
+	<navigator
+	 class="search-item"
+	 wx:for="{{searchResult}}"
+	 wx:key="goods_id"
+	 url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}"
+	>
+		{{item.goods_name}}
+	</navigator>
+</view>
+
