@@ -1,33 +1,6 @@
 <!--pages/cart/cart.wxml-->
 
-<view class="address-wrapper">
-	<view
-	 class="get-address"
-	 hover-class="get-address-hover"
-	 wx:if="{{!address.userName}}"
-	 bindtap="handleGetAddress"
-	>
-		获取收货地址
-	</view>
-	<view
-	 wx:else
-	 bindtap="changeAddress"
-	 class="address-info"
-	 hover-class="address-info-hover"
-	>
-		<text class="iconfont icon-location"></text>
-		<view class="address">
-			<view class="user">
-				<view class="user-name">{{address.userName}}</view>
-				{{address.telNumber}}
-			</view>
-			<view class="address-detail">
-				{{address.provinceName + address.cityName+ address.countyName+ address.detailInfo}}
-			</view>
-		</view>
-	</view>
-</view>
-<view class="header-bar">购物车
+<view class="header-bar" hidden="{{cartData.length==0}}">购物车
 	<view
 	 class="delete"
 	 hidden="{{totalCount==0}}"
@@ -115,5 +88,15 @@
 	>
 		结算{{totalCount==0?"":"("+totalCount+")"}}
 	</button>
+</view>
+
+<view class="empty-guide" wx:else="{{cartData.length==0}}">
+	<text class="empty-tip">
+		购物车还是空的
+	</text>
+
+	<navigator url="/pages/category/category" open-type="switchTab">
+		随便看看
+	</navigator>
 </view>
 

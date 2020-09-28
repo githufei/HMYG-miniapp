@@ -6,6 +6,22 @@ page {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	border-bottom: 1px solid var(--themeColor);
+
+	.get-address {
+		margin: 20rpx;
+		border: 1px solid var(--themeColor);
+		color: var(--themeColor);
+		border-radius: 8rpx;
+		padding: 10rpx 30rpx;
+		text-align: center;
+
+		&.get-address-hover {
+			color: var(--themeColorDark);
+			border-color: var(--themeColorDark);
+			background-color: #eee;
+		}
+	}
 
 	.address-info {
 		display: flex;
@@ -36,16 +52,6 @@ page {
 			color: #666;
 		}
 	}
-}
-
-.header-bar {
-	padding: 18rpx;
-	font-size: 30rpx;
-	display: flex;
-	justify-content: space-between;
-	border-top: 1px solid var(--themeColor);
-	border-bottom: 1px solid var(--themeColor);
-
 }
 
 .goods-list {

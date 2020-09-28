@@ -1,2 +1,58 @@
-<!--pages/feedback/feedback.wxml-->
-<text>pages/feedback/feedback.wxml</text>
+<Tabs tabs="{{tabs}}" bindchangeActiveTab="changeActiveTab">
+	<view class="feedback" wx:if="{{tabs[0].isActive}}">
+		<view class="problem-type">
+			<view class="title">问题的种类</view>
+			<view class="types" bindtap="handleProblemType">
+				<text data-type="suggest">功能建议</text>
+				<text data-type="operation">购买遇到问题</text>
+				<text data-type="performance">性能问题</text>
+				<text data-type="other">其它</text>
+			</view>
+		</view>
+		<view class="feedback-content">
+			<textarea
+			 value="{{inputVal}}"
+			 placeholder="请描述一下您的问题"
+			 maxlength="200"
+			 bindinput="handleInput"
+			></textarea>
+			<view class="upload-bar">
+				<view
+				 class="upload-item chooseImg"
+				 hover-class="chooseImg-hover"
+				 bindtap="handleChooseImg"
+				>
+					+
+				</view>
+				<view
+				 wx:for="{{tempFilePaths}}"
+				 wx:key="*this"
+				 class="upload-item"
+				 bindtap="handleRemoveImg"
+				 data-index="{{index}}"
+				>
+					<image src="{{item}}"></image>
+					<icon type="clear" color="#E30028"></icon>
+				</view>
+			</view>
+		</view>
+
+		<button
+		 class="submit"
+		 size="mini"
+		 type="primary"
+		 bindtap="handleSubmit"
+		>
+			<icon
+			 class=""
+			 type="success_no_circle"
+			 color="#fff"
+			 size="14"
+			>
+			</icon>
+			提交
+		</button>
+
+	</view>
+</Tabs>
+

@@ -37,8 +37,8 @@ Page({
 		}
 		this.setData({
 			categories,
-			activeId: categories[1].cat_id,
-			rightContent: categories[1].children
+			activeId: categories[0].cat_id,
+			rightContent: categories[0].children
 		})
 	},
 

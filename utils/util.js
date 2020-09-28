@@ -64,6 +64,16 @@ let showModal = (params) => {
 	})
 }
 
+let uploadFile = (params) => {
+	return new Promise((resolve, reject) => {
+		wx.uploadFile({
+			...params,
+			success: (result) => resolve(result),
+			fail: (err) => reject(err)
+		})
+	})
+}
+
 export {
 	getSetting,
 	chooseAddress,
@@ -71,5 +81,6 @@ export {
 	showToast,
 	showModal,
 	login,
-	requestPayment
+	requestPayment,
+	uploadFile
 };

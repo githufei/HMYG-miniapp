@@ -77,7 +77,7 @@ Page({
 		if (currentGoods) {
 			currentGoods.num++;
 		} else {
-			cartData.push({
+			cartData.unshift({
 				...goodsDetail,
 				num: 1,
 				checked: true
@@ -112,5 +112,10 @@ Page({
 			title: isCollected ? '取消收藏成功' : "收藏成功",
 			mask: true
 		});
+	},
+	// 立即购买
+	handleBuy() {
+		this.handleAddCart();
+		this.gotoCart();
 	}
 })

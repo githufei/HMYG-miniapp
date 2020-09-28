@@ -1,7 +1,15 @@
 <!--pages/cart/cart.wxml-->
-
 <view class="address-wrapper">
 	<view
+	 class="get-address"
+	 hover-class="get-address-hover"
+	 wx:if="{{!address.userName}}"
+	 bindtap="handleGetAddress"
+	>
+		获取收货地址
+	</view>
+	<view
+	 wx:else
 	 bindtap="changeAddress"
 	 class="address-info"
 	 hover-class="address-info-hover"
@@ -18,15 +26,13 @@
 		</view>
 	</view>
 </view>
-<view class="header-bar">购物车
-</view>
+
 <view class="goods-list empty-placeholder">
 	<view
 	 class="goods-item"
 	 wx:for="{{payGoods}}"
 	 wx:key="goods_id"
 	>
-
 		<view class="goods-pic">
 			<image mode="widthFix" src="{{item.pics[0].pics_sma}}"></image>
 		</view>

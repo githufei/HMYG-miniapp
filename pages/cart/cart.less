@@ -2,57 +2,6 @@ page {
     padding-bottom: 100rpx;
 }
 
-.address-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    .get-address {
-        margin: 20rpx;
-        border: 1px solid var(--themeColor);
-        color: var(--themeColor);
-        border-radius: 8rpx;
-        padding: 10rpx 30rpx;
-        text-align: center;
-
-        &.get-address-hover {
-            color: var(--themeColorDark);
-            border-color: var(--themeColorDark);
-            background-color: #eee;
-        }
-    }
-
-    .address-info {
-        display: flex;
-        align-items: center;
-        padding: 20rpx;
-
-        &.address-info-hover {
-            background-color: #eee;
-        }
-    }
-
-    .address {
-        margin-left: 20rpx;
-
-        .user {
-            display: flex;
-            margin-bottom: 10rpx;
-            font-size: 30rpx;
-            font-weight: 500;
-
-            .user-name {
-                margin-right: 20rpx;
-            }
-        }
-
-        .address-detail {
-            font-size: 26rpx;
-            color: #666;
-        }
-    }
-}
-
 .header-bar {
     padding: 18rpx;
     font-size: 30rpx;
@@ -207,5 +156,24 @@ page {
         &[disabled] {
             background: #d1d1d1;
         }
+    }
+}
+
+.empty-guide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .empty-tip {
+        color: #bbb;
+    }
+
+    navigator {
+        width: 200rpx;
+        margin-top: 40rpx;
+        color: var(--themeColor);
+        border: 1px solid currentColor;
+        border-radius: 40rpx;
+        padding: 10rpx 40rpx;
     }
 }

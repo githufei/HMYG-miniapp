@@ -138,6 +138,13 @@
                     "pathName": "pages/collect/collect",
                     "query": "query=爆款",
                     "scene": null
+                },
+                {
+                    "id": 10,
+                    "name": "pages/feedback/feedback",
+                    "pathName": "pages/feedback/feedback",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

@@ -78,8 +78,8 @@ Page({
 			})
 			console.log(orders);
 		} else {
-			wx.navigateTo({
-				url: '/pages/auth/auth'
+			wx.switchTab({
+				url: '/pages/user/user'
 			});
 		}
 	}

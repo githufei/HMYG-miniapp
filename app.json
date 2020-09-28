@@ -10,8 +10,6 @@
 		"pages/order/order",
 		"pages/search/search",
 		"pages/feedback/feedback",
-		"pages/login/login",
-		"pages/auth/auth",
 		"pages/pay/pay"
 	],
 	"window": {
