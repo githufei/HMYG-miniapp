@@ -1,6 +1,6 @@
-<view class="search" >
-    <navigator url="/pages/search/search" open-type="navigate">
-        搜索
-    </navigator>
+<view class="search">
+	<navigator url="/pages/search/search" open-type="navigate">
+		搜索
+	</navigator>
 </view>
-  
+

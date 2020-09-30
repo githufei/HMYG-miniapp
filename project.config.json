@@ -68,8 +68,7 @@
         },
         "miniprogram": {
             "current": -1,
-            "list": [
-                {
+            "list": [{
                     "id": 0,
                     "name": "pages/goods_list/goods_list",
                     "pathName": "pages/goods_list/goods_list",

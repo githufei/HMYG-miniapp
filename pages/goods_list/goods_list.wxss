@@ -2,6 +2,7 @@
   display: flex;
   border-bottom: 1px solid #eee;
 }
+
 .goods-item .goods-logo {
   flex: 2;
   display: flex;
@@ -9,10 +10,12 @@
   align-items: center;
   padding: 10rpx;
 }
+
 .goods-item .goods-logo image {
   width: 80%;
   height: 160rpx;
 }
+
 .goods-item .goods-info {
   flex: 3;
   display: flex;
@@ -20,6 +23,7 @@
   padding: 0rpx 30rpx;
   justify-content: center;
 }
+
 .goods-item .goods-info .goods-name {
   color: #111;
   word-break: break-all;
@@ -29,6 +33,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
+
 .goods-item .goods-info .goods-price {
   margin-top: 20rpx;
   font-size: 32rpx;

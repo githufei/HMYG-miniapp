@@ -3,10 +3,12 @@ page {
   padding: 20rpx;
   color: #333;
 }
+
 .search-bar {
   display: flex;
   height: 60rpx;
 }
+
 .search-bar input {
   height: 100%;
   padding: 0 10rpx;
@@ -14,6 +16,7 @@ page {
   border-radius: 8rpx;
   flex: 1;
 }
+
 .search-bar .cancel {
   margin: 0;
   padding: 0;
@@ -26,14 +29,17 @@ page {
   justify-content: center;
   margin-left: 20rpx;
 }
+
 .search-bar .cancel:not(.button-hover) {
   background: #fff;
 }
+
 .search-result {
   margin-top: 20rpx;
   background: #fff;
   border-radius: 8rpx;
 }
+
 .search-result .search-item {
   border-bottom: 1px solid #eee;
   overflow: hidden;

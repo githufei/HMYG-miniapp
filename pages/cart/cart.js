@@ -10,42 +10,28 @@ Page({
 		allChecked: false
 	},
 
-	onShow: function () {
+	onShow: function() {
 		let cartData = wx.getStorageSync('cart') || [];
 		this.setCart(cartData);
 	},
 
 	handleItemCheck(e) {
-		let {
-			index
-		} = e.currentTarget.dataset;
-		let {
-			cartData
-		} = this.data;
-		let {
-			checked
-		} = cartData[index];
+		let { index } = e.currentTarget.dataset;
+		let { cartData } = this.data;
+		let { checked } = cartData[index];
 		cartData[index].checked = !checked;
 		this.setCart(cartData);
 	},
 
 	handleCheckAll(e) {
-		let {
-			cartData,
-			allChecked
-		} = this.data;
-		cartData.forEach(i => i.checked = !allChecked);
+		let { cartData, allChecked } = this.data;
+		cartData.forEach((i) => (i.checked = !allChecked));
 		this.setCart(cartData);
 	},
 
 	handleChangeNum(e) {
-		let {
-			index,
-			operation
-		} = e.currentTarget.dataset;
-		let {
-			cartData
-		} = this.data;
+		let { index, operation } = e.currentTarget.dataset;
+		let { cartData } = this.data;
 		cartData[index].num += operation;
 		this.setCart(cartData);
 	},
@@ -59,23 +45,21 @@ Page({
 				totalValue += item.num * item.goods_price;
 				totalCount += item.num;
 			} else {
-				allChecked = false
+				allChecked = false;
 			}
-		})
+		});
 		this.setData({
 			totalValue,
 			totalCount,
 			allChecked,
 			cartData
-		})
+		});
 		wx.setStorageSync('cart', cartData);
 	},
 
 	handleDelete() {
-		let {
-			cartData
-		} = this.data;
-		cartData = cartData.filter(i => !i.checked);
+		let { cartData } = this.data;
+		cartData = cartData.filter((i) => !i.checked);
 		this.setCart(cartData);
 	},
 
@@ -93,11 +77,11 @@ Page({
 				success: (result) => {
 					if (result.confirm) {
 						wx.switchTab({
-							url: '/pages/user/user',
-						})
+							url: '/pages/user/user'
+						});
 					}
 				}
 			});
 		}
 	}
-})
+});

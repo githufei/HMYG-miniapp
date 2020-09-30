@@ -13,7 +13,7 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function (options) {
+	onLoad: function(options) {
 		this.requestSwiperList();
 		this.requestCatList();
 		this.requestFloorList();
@@ -21,10 +21,8 @@ Page({
 	requestSwiperList() {
 		request({
 			url: '/home/swiperdata'
-		}).then((
-			data
-		) => {
-			data.forEach(i => i.goods_id = i.navigator_url.split('?')[1].replace('goods_id=', ''));
+		}).then((data) => {
+			data.forEach((i) => (i.goods_id = i.navigator_url.split('?')[1].replace('goods_id=', '')));
 			this.setData({
 				swiperList: data
 			});
@@ -33,9 +31,7 @@ Page({
 	requestCatList() {
 		request({
 			url: '/home/catitems'
-		}).then((
-			data
-		) => {
+		}).then((data) => {
 			this.setData({
 				catList: data
 			});
@@ -44,14 +40,12 @@ Page({
 	requestFloorList() {
 		request({
 			url: '/home/floordata'
-		}).then((
-			data
-		) => {
-			data.forEach(i => {
-				i.product_list.forEach(v => {
-					v.query = v.navigator_url.split('?')[1].replace('query=', '')
-				})
-			})
+		}).then((data) => {
+			data.forEach((i) => {
+				i.product_list.forEach((v) => {
+					v.query = v.navigator_url.split('?')[1].replace('query=', '');
+				});
+			});
 			this.setData({
 				floorList: data
 			});

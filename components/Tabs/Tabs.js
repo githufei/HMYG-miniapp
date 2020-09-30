@@ -17,7 +17,7 @@ Component({
 		handleTabBarClick(e) {
 			this.triggerEvent('changeActiveTab', {
 				index: e.currentTarget.dataset.index
-			})
+			});
 		}
 	}
-})
+});

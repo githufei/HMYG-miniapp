@@ -1,26 +1,12 @@
 Component({
-  behaviors: [],
-  properties: {
-
-  },
-  data: {
-
-  },
-  lifetimes: {
-    created() {
-
-    },
-    attached() {
-
-    },
-    moved() {
-
-    },
-    detached() {
-
-    },
-  },
-  methods: {
-
-  },
+	behaviors: [],
+	properties: {},
+	data: {},
+	lifetimes: {
+		created() {},
+		attached() {},
+		moved() {},
+		detached() {}
+	},
+	methods: {}
 });

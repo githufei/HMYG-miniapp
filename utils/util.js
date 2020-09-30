@@ -3,20 +3,20 @@ let getSetting = () => {
 	return new Promise((resolve, reject) => {
 		wx.getSetting({
 			success: (result) => resolve(result),
-			fail: (err) => reject(err),
-		})
-	})
-}
+			fail: (err) => reject(err)
+		});
+	});
+};
 
 // 获取用户收货地址的 promise 形式
 let chooseAddress = () => {
 	return new Promise((resolve, reject) => {
 		wx.chooseAddress({
 			success: (result) => resolve(result),
-			fail: (err) => reject(err),
+			fail: (err) => reject(err)
 		});
-	})
-}
+	});
+};
 
 let openSetting = () => {
 	return new Promise((resolve, reject) => {
@@ -24,8 +24,8 @@ let openSetting = () => {
 			success: (result) => resolve(result),
 			fail: (err) => reject(err)
 		});
-	})
-}
+	});
+};
 
 let login = () => {
 	return new Promise((resolve, reject) => {
@@ -33,8 +33,8 @@ let login = () => {
 			success: (result) => resolve(result),
 			fail: (err) => reject(err)
 		});
-	})
-}
+	});
+};
 
 let requestPayment = (params) => {
 	return new Promise((resolve, reject) => {
@@ -43,8 +43,8 @@ let requestPayment = (params) => {
 			success: (result) => resolve(result),
 			fail: (err) => reject(err)
 		});
-	})
-}
+	});
+};
 
 let showToast = (params) => {
 	return new Promise((resolve) => {
@@ -52,8 +52,8 @@ let showToast = (params) => {
 			...params,
 			success: (result) => resolve(result)
 		});
-	})
-}
+	});
+};
 
 let showModal = (params) => {
 	return new Promise((resolve) => {
@@ -61,8 +61,8 @@ let showModal = (params) => {
 			...params,
 			success: (result) => resolve(result)
 		});
-	})
-}
+	});
+};
 
 let uploadFile = (params) => {
 	return new Promise((resolve, reject) => {
@@ -70,17 +70,8 @@ let uploadFile = (params) => {
 			...params,
 			success: (result) => resolve(result),
 			fail: (err) => reject(err)
-		})
-	})
-}
-
-export {
-	getSetting,
-	chooseAddress,
-	openSetting,
-	showToast,
-	showModal,
-	login,
-	requestPayment,
-	uploadFile
+		});
+	});
 };
+
+export { getSetting, chooseAddress, openSetting, showToast, showModal, login, requestPayment, uploadFile };

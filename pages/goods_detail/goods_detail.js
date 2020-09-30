@@ -2,7 +2,6 @@
 import request from '../../request/index.js';
 
 Page({
-
 	/**
 	 * 页面的初始数据
 	 */
@@ -15,10 +14,10 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function (options) {
+	onLoad: function(options) {
 		this.requestGoodsDetail(options.goods_id);
 		let collect = wx.getStorageSync('collect') || [];
-		let isCollected = collect.some(i => i.goods_id == options.goods_id);
+		let isCollected = collect.some((i) => i.goods_id == options.goods_id);
 		this.setData({
 			isCollected
 		});
@@ -26,11 +25,11 @@ Page({
 
 	async requestGoodsDetail(id) {
 		let goodsDetail = await request({
-			url: "/goods/detail",
+			url: '/goods/detail',
 			data: {
 				goods_id: id
 			}
-		})
+		});
 		this.setData({
 			// 精简存在页面 data 中的数据，可以优化性能
 			goodsDetail: {
@@ -40,19 +39,15 @@ Page({
 				goods_introduce: goodsDetail.goods_introduce,
 				pics: goodsDetail.pics
 			},
-			previewImageUrls: goodsDetail.pics.map(i => i.pics_big)
-		})
+			previewImageUrls: goodsDetail.pics.map((i) => i.pics_big)
+		});
 		console.log(this.data.goodsDetail);
 	},
 
 	// 预览轮播图大图
 	handlePreviewImage(e) {
-		let {
-			index
-		} = e.currentTarget.dataset;
-		let {
-			previewImageUrls
-		} = this.data;
+		let { index } = e.currentTarget.dataset;
+		let { previewImageUrls } = this.data;
 		wx.previewImage({
 			current: previewImageUrls[index],
 			urls: previewImageUrls
@@ -70,10 +65,8 @@ Page({
 	// 点击加入购物车时，先判断微信缓存数据中是否存在该商品，存在则将数量+1，然后重新存入缓存；不存在在将当前商品信息及数量 1 添加到缓存中
 	handleAddCart() {
 		let cartData = wx.getStorageSync('cart') || [];
-		let {
-			goodsDetail
-		} = this.data;
-		let currentGoods = cartData.find(i => i.goods_id == goodsDetail.goods_id);
+		let { goodsDetail } = this.data;
+		let currentGoods = cartData.find((i) => i.goods_id == goodsDetail.goods_id);
 		if (currentGoods) {
 			currentGoods.num++;
 		} else {
@@ -81,7 +74,7 @@ Page({
 				...goodsDetail,
 				num: 1,
 				checked: true
-			})
+			});
 		}
 		wx.setStorageSync('cart', cartData);
 		wx.showToast({
@@ -93,13 +86,10 @@ Page({
 
 	// 商品收藏功能
 	handleCollect() {
-		let {
-			isCollected,
-			goodsDetail
-		} = this.data;
+		let { isCollected, goodsDetail } = this.data;
 		let collect = wx.getStorageSync('collect') || [];
 		if (isCollected) {
-			let index = collect.findIndex(i => i.goods_id == goodsDetail.goods_id);
+			let index = collect.findIndex((i) => i.goods_id == goodsDetail.goods_id);
 			collect.splice(index, 1);
 		} else {
 			collect.push(goodsDetail);
@@ -107,9 +97,9 @@ Page({
 		this.setData({
 			isCollected: !isCollected
 		});
-		wx.setStorageSync("collect", collect);
+		wx.setStorageSync('collect', collect);
 		wx.showToast({
-			title: isCollected ? '取消收藏成功' : "收藏成功",
+			title: isCollected ? '取消收藏成功' : '收藏成功',
 			mask: true
 		});
 	},
@@ -118,4 +108,4 @@ Page({
 		this.handleAddCart();
 		this.gotoCart();
 	}
-})
+});

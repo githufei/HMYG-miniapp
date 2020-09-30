@@ -72,5 +72,5 @@
 	<view class="text-row">关于我们</view>
 </view>
 
-<view class="section text-row">把应用推荐给其他人</view>
+<view class="section text-row" bindtap="handleClearStorage">清除缓存</view>
 

@@ -1,17 +1,21 @@
 page {
   background: #eee;
 }
+
 .feedback {
   padding: 0 20rpx;
 }
+
 .problem-type .title {
   color: #666;
   padding: 20rpx 0;
 }
+
 .problem-type .types {
   display: flex;
   flex-wrap: wrap;
 }
+
 .problem-type .types text {
   background: #fff;
   color: #666;
@@ -21,19 +25,23 @@ page {
   padding: 10rpx 0;
   border-radius: 6rpx;
 }
+
 .feedback-content {
   background: #fff;
   border-radius: 6rpx;
   padding: 10rpx;
 }
+
 .feedback-content textarea {
   width: 100%;
 }
+
 .feedback-content .upload-bar {
   margin-top: 20rpx;
   display: flex;
   flex-wrap: wrap;
 }
+
 .feedback-content .upload-bar .chooseImg {
   color: #999;
   display: flex;
@@ -42,9 +50,11 @@ page {
   font-size: 40rpx;
   background: #F5F7F4;
 }
+
 .feedback-content .upload-bar .chooseImg.chooseImg-hover {
   background: #EAEAEA;
 }
+
 .feedback-content .upload-bar .upload-item {
   width: 80rpx;
   height: 80rpx;
@@ -54,16 +64,19 @@ page {
   margin-top: 20rpx;
   position: relative;
 }
+
 .feedback-content .upload-bar .upload-item image {
   border-radius: 8rpx;
   width: 100%;
   height: 100%;
 }
+
 .feedback-content .upload-bar .upload-item icon {
   position: absolute;
   top: -16rpx;
   right: -16rpx;
 }
+
 .submit {
   margin-top: 20rpx;
   float: right;

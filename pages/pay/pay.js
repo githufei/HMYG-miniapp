@@ -1,10 +1,5 @@
 // pages/pay/pay.js
-import {
-	chooseAddress,
-	requestPayment,
-	getSetting,
-	openSetting
-} from '../../utils/util.js'
+import { chooseAddress, requestPayment, getSetting, openSetting } from '../../utils/util.js';
 
 import request from '../../request/index.js';
 Page({
@@ -18,10 +13,10 @@ Page({
 		address: {}
 	},
 
-	onShow: function () {
+	onShow: function() {
 		let address = wx.getStorageSync('address') || {};
 		address.full = address.provinceName + address.cityName + address.countyName + address.detailInfo;
-		let payGoods = (wx.getStorageSync('cart') || []).filter(i => i.checked);
+		let payGoods = (wx.getStorageSync('cart') || []).filter((i) => i.checked);
 		this.setData({
 			address
 		});
@@ -34,12 +29,12 @@ Page({
 		payGoods.forEach((item, index) => {
 			totalValue += item.num * item.goods_price;
 			totalCount += item.num;
-		})
+		});
 		this.setData({
 			totalValue,
 			totalCount,
 			payGoods
-		})
+		});
 		wx.setStorageSync('cart', payGoods);
 	},
 
@@ -58,9 +53,7 @@ Page({
 		*/
 	async handleGetAddress() {
 		try {
-			let {
-				authSetting
-			} = await getSetting();
+			let { authSetting } = await getSetting();
 			if (authSetting['scope.address'] === false) {
 				await openSetting();
 			}
@@ -99,48 +92,40 @@ Page({
 		if (!this.data.address.userName) {
 			wx.showToast({
 				title: '请先添加收货地址',
-				icon: "none",
+				icon: 'none',
 				mask: true
 			});
 			return;
 		}
 		try {
 			let token = wx.getStorageSync('token');
-			let {
-				payGoods,
-				address,
-				totalValue
-			} = this.data;
+			let { payGoods, address, totalValue } = this.data;
 			if (token) {
 				// 生成订单号
-				let {
-					order_number
-				} = await request({
-					url: "/my/orders/create",
-					method: "POST",
+				let { order_number } = await request({
+					url: '/my/orders/create',
+					method: 'POST',
 					data: {
 						order_price: totalValue, // 订单总价格
 						consignee_addr: address.full, // 收货地址
-						goods: payGoods.map(i => {
+						goods: payGoods.map((i) => {
 							return {
 								goods_id: i.goods_id, // 商品id
 								goods_number: i.num, // 购买的数量
-								goods_price: i.goods_price, // 单价
-							}
+								goods_price: i.goods_price // 单价
+							};
 						})
 					}
-				})
+				});
 
 				// 获取支付参数 -- pay 为微信支付所必需的参数
-				let {
-					pay
-				} = await request({
-					url: "/my/orders/req_unifiedorder",
-					method: "POST",
+				let { pay } = await request({
+					url: '/my/orders/req_unifiedorder',
+					method: 'POST',
 					data: {
 						order_number
 					}
-				})
+				});
 				console.log(pay);
 
 				// 发起微信支付 -- 目前会报"requestPayment:fail no permission"，可能是用的 AppID 与实际生成支付参数时用的 AppID 不同
@@ -148,8 +133,8 @@ Page({
 
 				// 查询支付结果
 				let result = await request({
-					url: "/my/orders/chkOrder",
-					method: "POST",
+					url: '/my/orders/chkOrder',
+					method: 'POST',
 					data: {
 						order_number
 					}
@@ -159,25 +144,25 @@ Page({
 				});
 				// 删除掉缓存购物车中支付成功的数据
 				let cartData = wx.getStorageSync('cart');
-				wx.setStorageSync('cart', cartData.filter(i => !i.checked));
+				wx.setStorageSync('cart', cartData.filter((i) => !i.checked));
 				// 跳转到订单页面
 				wx.navigateTo({
 					url: '/pages/order/order'
 				});
 			} else {
 				wx.switchTab({
-					url: '/pages/user/user',
+					url: '/pages/user/user'
 				});
 			}
 		} catch (err) {
 			console.log(err);
 			// 由于不能支付成功，这里为了向下执行流程，支付失败时也执行支付成功的逻辑
 			let cartData = wx.getStorageSync('cart');
-			wx.setStorageSync('cart', cartData.filter(i => !i.checked));
+			wx.setStorageSync('cart', cartData.filter((i) => !i.checked));
 			wx.showToast({
-				icon: "none",
+				icon: 'none',
 				title: '支付失败'
 			});
 		}
 	}
-})
+});

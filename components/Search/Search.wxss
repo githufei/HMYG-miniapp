@@ -3,6 +3,7 @@
   height: 90rpx;
   padding: 10rpx;
 }
+
 .search navigator {
   display: flex;
   justify-content: center;
